@@ -3,7 +3,7 @@
 /*****************************************/
 /********** Les boucles : For ************/
 /*****************************************/
-echo '1.Nombre de mouton : <br>';
+echo '1.Nombre de mouton : <br><br>';
 for ($i = 0; $i <= 10; ++$i) {
     echo $i.' mouton(s)<br>';
 }
@@ -12,7 +12,7 @@ echo '<br><br>';
 //for : particulièrement utile pour pacourir un tableau
 $couleurs = ['rouge', 'bleu', 'vert', 'orange', 'marron', 'noir', 'blanc'];
 //count est une fonction proposée par php qui sert à compter le nombre d'éléments d'un tableau
-echo '2.Les couleurs : <br>';
+echo '2.Les couleurs : <br><br>';
 for ($i = 0; $i < count($couleurs); ++$i) {
     echo $couleurs[$i].'<br>';
 }
@@ -111,17 +111,18 @@ echo '<br><br>';
 //Créer un tableau pour les mois de l'année et affiché tous les mois de Janvier à Décembre
 //modifier et/ou remplacer les éléments ci-dessous
 echo "8.Les mois depuis le debut de l'annee : <br>";
-$mois = [];
-for ($i = 0; $i < 0; $i) {
-    echo '';
+$mois = ['j', 'f', 'm', 'a', 'm', 'j', 'ju', 'a', 's', 'o', 'n', 'd'];
+foreach ($mois as $month) {
+    echo $month.' ';
 }
 echo '<br><br>';
 
 //Afficher les mois de la fin de l'année jusqu'au début de l'année
 //modifier et/ou remplacer les éléments ci-dessous
 echo "9.Les mois depuis la fin de l'annee : <br>";
-for ($i = 0; $i < 0; $i) {
-    echo '';
+$mois = ['j', 'f', 'm', 'a', 'm', 'j', 'ju', 'a', 's', 'o', 'n', 'd'];
+for ($i = 12; $i >= 0; $i--) {
+    echo $mois[$i].' ';
 }
 echo '<br><br>';
 //----------------------------------------
@@ -145,17 +146,63 @@ $college = array(
     array('Nom' => 'Johannson', 'Prenom' => 'Scarlett'),
     array('Nom' => 'Jackson', 'Prenom' => 'Samuel'),
   ),
+  // 'troisième' => array(
+  //   array('Nom' => 'Neimare', 'Prenom' => 'Bruce'),
+  //   array('Nom' => 'Zazi', 'Prenom' => 'Laurence'),
+  //   array('Nom' => 'Pathson', 'Prenom' => 'Scarlett'),
+  //   array('Nom' => 'Jhonson', 'Prenom' => 'Samuel'),
+  // ),
 );
 
 echo '10.Les eleves du college : <br>';
-//ajoutez votre code ici
+foreach($college as $classe=> $eleves){
+  echo $classe."<br><br>";
+  foreach ($eleves as $key => $value) {
+    foreach ($value as $value) {
+      echo $value."<br>";
+    }
+  } echo "<br>";
+}
 echo '<br><br>';
 
 //----------------------------------------
 //Afficher le nom et prénoms des élèves de ce collège
 //reprenez le tableau ci-dessus, ajoutez des éléves pour la classe de troisième et réaffichez tout
 echo '11.Les eleves du college (avec les nouveaux arrivants): <br>';
-//ajoutez votre code ici
+$college = array(
+  'Sixieme' => array(
+    array('Nom' => 'Payet', 'Prenom' => 'Mickael'),
+    array('Nom' => 'Hoareau', 'Prenom' => 'Christine'),
+    array('Nom' => 'Maillot', 'Prenom' => 'Laure'),
+  ),
+  'Cinquieme' => array(
+    array('Nom' => 'Bourdon', 'Prenom' => 'Didier'),
+    array('Nom' => 'Legitimus', 'Prenom' => 'Pascal'),
+    array('Nom' => 'Campan', 'Prenom' => 'Bernard'),
+    array('Nom' => 'Fois', 'Prenom' => 'Marina'),
+    array('Nom' => 'Floresti', 'Prenom' => 'Florence'),
+  ),
+  'Quatrieme' => array(
+    array('Nom' => 'Willis', 'Prenom' => 'Bruce'),
+    array('Nom' => 'Lawrence', 'Prenom' => 'Laurence'),
+    array('Nom' => 'Johannson', 'Prenom' => 'Scarlett'),
+    array('Nom' => 'Jackson', 'Prenom' => 'Samuel'),
+  ),
+  'troisième' => array(
+    array('Nom' => 'Neimare', 'Prenom' => 'Bruce'),
+    array('Nom' => 'Zazi', 'Prenom' => 'Laurence'),
+    array('Nom' => 'Pathson', 'Prenom' => 'Scarlett'),
+    array('Nom' => 'Jhonson', 'Prenom' => 'Samuel'),
+  ),
+);
+foreach($college as $classe=> $eleves){
+  echo $classe."<br><br>";
+  foreach ($eleves as $key => $value) {
+    foreach ($value as $value) {
+      echo $value."<br>";
+    }
+  } echo "<br>";
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -196,7 +243,17 @@ $videotheque = array(
 );
 
 echo '12.Mes films : <br>';
-//ajoutez votre code ici
+foreach ($videotheque as $key => $films) {
+  echo "<br>";
+  foreach ($films as $key => $value) {
+    if (!is_array($value)) {
+    echo $value."<br>";
+    }
+    foreach ($value as $value) {
+      echo $value;
+    }
+  }echo "<br>";
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -206,5 +263,59 @@ echo '<br><br>';
 //rajoutez un synopsis
 
 echo '13.Mes films : <br>';
-//ajoutez votre code ici
+$videotheque = array(
+  array(
+    'nom' => 'Independance day',
+    'date' => 1996,
+    'realisateur' => 'Roland Emmerich',
+    'acteurs' => array(
+      'Will Smith', 'Bill Pullman', 'Jeff Goldblum', 'Mary McDonnell',
+    ),
+  ),
+  array(
+    'nom' => 'Bienvenue a Gattaca',
+    'date' => 1998,
+    'realisateur' => 'Andrew Niccol',
+    'acteurs' => array(
+      'Ethan Hawke', 'Uma Thurman', 'Jude Law',
+    ),
+  ),
+  array(
+    'nom' => 'Forrest Gump',
+    'date' => 1994,
+    'realisateur' => 'Robert Zemeckis',
+    'acteurs' => array(
+        'Tom Hanks', 'Gary Sinise',
+    ),
+  ),
+  array(
+    'nom' => '12 hommes en colere',
+    'date' => 2001,
+    'realisateur' => 'Peter Jackson',
+    'acteurs' => array(
+        'Henry Fonda','Martin Balsam','John Fiedler','Lee J. Cobb','E.G. Marshall',
+    ),
+  ),
+  array(
+    'nom' => 'le seigneur des anneaux',
+    'date' => 1957,
+    'realisateur' => 'Sidney Lumet',
+    'acteurs' => array(
+        'Elijah Wood','Viggo Mortensen','Orlando Bloom','Ian McKellen','Christopher Lee', 'plus...',
+    ),
+  ),
+);
+
+
+foreach ($videotheque as $key => $films) {
+  echo "<br><br>";
+  foreach ($films as $key => $value) {
+    if (!is_array($value)) {
+    echo $value." "."<br>";
+    }
+    foreach ($value as $value) {
+      echo $value. " ";
+    }
+  }echo "<br>";
+}
 echo '<br><br>';
